@@ -278,3 +278,118 @@ if(isShow) {
 	console.log('Hide?');
 }
 ```
+
+### DOM API
+
+Document Object Model. Application Programming Interface
+
+자바스크립트에서 HTML을 제어하는 명령들
+
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./main.js"></script>
+</head>
+<body>
+  <div class="box">box</div>
+</body>
+</html>
+```
+
+위와 같이 작성된 script 코드는 div.box를 읽지 못한다. 그 이유는 코드를 위에서 아래로 읽어내리는데 갑자기 script에서 main.js 읽어서 브라우저에 적용하려고 해달라고 했지만 아직 밑의 내용을 아직 읽지 않았기 때문에 div.box를 가진 요소를 찾을 수가 없었던 것이다.
+
+
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="box">box</div>
+  <script defer src="./main.js"></script>
+</body>
+</html>
+```
+
+head 태그 안(정보의 부분)에서 scirpt(정보)를 적용시키는데, 저러한 반응 때문에 body(구조의 부분)에 적용시키는 일은 그다지 좋은 방법은 아니다. 그래서 `defer`라는 속성을 추가하는데 이것은 html을 다 읽은 상태서 script를 실행해 달라고 하는 것이다.
+
+```jsx
+// HTML 요소(Element) 1개 검색/찾기
+const boxEl = document.querySelector('.box');
+
+// HTML 요소에 적용할 수 있는 메소드
+boxEl.addEventListener();
+
+// 인수(Arguments)를 추가 가능
+boxEl.addEventListener(1, 2);
+
+// 1 - 이벤트(Event, 상황)
+boxEl.addEventListener('click', 2);
+
+// 2 - 핸들러(Handler, 실행할 함수(익명함수))
+boxEl.addEventListener('click', function () {
+  console.log('Click~!');
+});
+```
+
+```jsx
+// HTML 요소 (Element) 검색/찾기
+const boxEl = document.querySelector('.box');
+
+// 요소의 클래스 정보 객체 활용
+boxEl.classList.add('active');
+let isContains = boxEl.classList.contains('active'); //active라는 클래스가 있는지 확인함
+console.log(isContains); //active라는 클래스가 있어서 true를 띄운다.
+
+boxEl.classList.remove('active');
+isContains = boxEl.classList.contains('active'); //let으로 재할당된 부분, 클래스 active가 포함되어있는지 확인하는 구문
+console.log(isContains); // active가 포함이 되지 않아서 false가 뜬다
+```
+
+여기서 let을 써서 재할당이 된 것이다. 만약 여기에 const를 썼다면 재할당이 되지 않았을 것이다.
+
+contains() 명령어
+
+```jsx
+// HTML 요소(Element)요소 검색/찾기
+const boxEls = document.querySelectorAll('.box');
+console.log(boxEls);
+
+// 찾은 요소들 반복(forEach)해서 함수 실행
+// 익명 함수를 인수로 추가
+boxEls.forEach(function () {});
+// boxEls는 복수 형태로(querySelectorAll로 .box 들을 포함하고 있는 형태로 배열데이터로 만들어진다,
+// 정확하게는 배열 데이터가 아니라서 유사배열(array-like)이라는 형태를 갖춘다)
+
+// 첫 번째 매개변수(boxEl): 반복 중인 요소.
+// 두 번째 매개변수(index): 반복 중인 번호.
+boxEls.forEach(function (boxEl, index) {});
+
+// 출력
+boxEls.forEach(function (boxEl, index) {
+  boxEl.classList.add(`order-${index + 1}`);
+  console.log(index, boxEl);
+})
+```
+
+이러한 데이터가 어떻게 동작되는지 머릿속에 그려내려면 데이터의 종류를 반드시 숙달해야함!
+
+textContent 속성 
+```jsx
+const boxEl = document.querySelector('.box');
+
+// Getter, 값을 얻는 용도
+console.log(boxEl.textContent); //Box
+
+// Setter, 값을 지정하는 용도
+boxEl.textContent = 'Monroe';
+console.log(boxEl.textContent); //monroe;
+```
