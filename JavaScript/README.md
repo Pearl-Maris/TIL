@@ -237,3 +237,44 @@ console.log(shesName);
 //혹은
 console.log(monroe.getName());
 ```
+
+### 조건문
+
+조건의 결과(truthy, falsy)에 따라 다른 코드를 실행하는 구문
+
+if, else
+
+#### if
+
+```jsx
+let isShow = true;
+let checked = false;
+
+if (isShow) {
+	console.log('Show!');
+} //조건구문
+
+if (checked) { //false는 '조건에 부합하지 않는다' 라고 한다
+	console.log('Checked!');
+}
+```
+
+#### else
+
+```jsx
+let isShow = true;
+
+if(isShow) {
+	console.log('Show!');
+} else {
+	console.log('Hide?'); //실행되지 않음
+}
+
+let isShow = false;
+
+if(isShow) {
+	console.log('Show!'); //실행되지 않음
+} else {
+	console.log('Hide?');
+}
+```
