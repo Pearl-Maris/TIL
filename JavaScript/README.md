@@ -128,3 +128,37 @@ console.log(new Date('2022-01-31').getDay());
  * 사용한다.
  */
 ```
+### 변수
+데이터를 저장하고 참조(사용)하는 데이터의 이름
+
+1. let
+2. const
+3.  ~~var~~
+
+```jsx
+// 재사용이 가능
+// 변수 선언
+let a = 2;
+let b = 5;
+
+console.log(a + b);
+console.log(a - b);
+console.log(a * b);
+console.log(a / b);
+//let이라는 키워드를 사용해서 a라는 변수 이름을 지정하고 2를 저장하는 것을 변수를 선언한다라고 한다.
+
+// let 키워드를 사용해서 값(데이터)의 재할당 가능!
+let a = 12;
+console.log(a);
+
+a = 999;
+console.log(a);
+
+// const에는 값(데이터)의 재할당이 불가능하다
+const a = 12;
+console.log(a);
+
+a = 999;
+console.log(a); //TypeError
+```
+
