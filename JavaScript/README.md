@@ -162,3 +162,12 @@ a = 999;
 console.log(a); //TypeError
 ```
 
+### 예약어
+특별한 의미를 가지고 있어, 변수나 함수 이름 등으로 사용할 수 없는 단어 <br/>
+if, this, break 등등
+
+```jsx
+let this = 'Hello'; // syntaxError(문법에러) 예약어를 쓰면 이렇게 뜬다
+let if = 123;
+let break = true;
+```
