@@ -171,3 +171,69 @@ let this = 'Hello'; // syntaxError(문법에러) 예약어를 쓰면 이렇게 �
 let if = 123;
 let break = true;
 ```
+
+### 함수 (function)
+특정 동작(기능)을 수행하는 일부 코드의 집합(부분)
+
+```jsx
+//함수 선언
+function helloFunc() {
+	//실행 코드
+	console.log(1234);
+}
+
+//함수 호출
+helloFunc(); // 1234
+
+/// 123숫자를 반환시킨다.
+function returnFunc() {
+	return 123;
+}
+let a = returnFunc(); //호출된다는건 실행한다()는 뜻
+console.log(a);
+
+//함수 선언!
+function sum(a, b) { //a와 b는 매개변수(Parameters)
+	return a + b;
+}
+
+//재사용!
+let a = sum(1, 2); // 1과 2는 인수(Arguments)
+let b = sum(7, 12);
+let c = sum(2, 4);
+
+console.log(a, b, c);
+```
+
+```jsx
+//아래와 같은 것을 기명(이름이 있는)함수
+//함수 선언
+function hello() {
+	console.log('hello~');
+};
+
+//익명(이름이 없는)함수. 아래와 같이 이름도 없이()를 시작하면 익명함수
+//이것을 함수 표현한다라고 한다.
+let world = function () {
+	console.log('World!!');
+};
+
+//함수 호출
+hello();
+world();
+
+//객체 데이터
+const monroe = {
+	name: 'monroe',
+	age: 23;
+	//메소드 Method(함수의 표현. 속성 부분에 함수가 할당되어 있으면 메소드라고 부른다)
+	getName: function () {
+		return this.name;
+	}
+};
+
+const shesName = monroe.getName();
+console.log(shesName);
+//혹은
+console.log(monroe.getName());
+```
