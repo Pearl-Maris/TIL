@@ -406,3 +406,14 @@ const b = a.split('').reverse().join(''); // 메소드 체이닝
 console.log(a); // Hello~
 console.log(b); // ~olleH
 ```
+
+### 산술 연산자 (arithmetic operator)
+```jsx
+console.log(1 + 2)
+console.log(5 - 7)
+console.log(3 * 4)
+console.log(10 / 2)
+//
+console.log(7 % 5)
+```
+console.log(1+2) → console.log(1 + 2) 로 바꾸면 가독성 있어진다. 위에 것 외에도 나머지 연산자가 있다. 일반적인 경우에 잘 사용하지는 않지만 가끔 유용한 경우도 있다.
